@@ -1,12 +1,26 @@
-import "./App.css";
-import Login from "./pages/Login/Login";
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Landing from "./pages/Landing/Landing";
 import Register from "./pages/Register/Register";
-import Example from "./components/Carousel";
+import Login from "./pages/Login/Login";
+import Header from "./components/Header/Header";
 
 function App() {
+  const location = useLocation(); // Get the current location
+
+  // Check if the current path is "/"
+  const isRootPath = location.pathname === "/";
+
   return (
     <div className="App">
-      <Example></Example>
+      {isRootPath ? <Header /> : <Navbar />}{" "}
+      {/* Conditionally render Header or Navbar */}
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </div>
   );
 }
