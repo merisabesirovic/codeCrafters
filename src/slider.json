@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Astigmatism",
+    "image": "images/1.png",
+    "description": "Explore personalized content curated to accommodate varying visual needs. From adjustable font sizes and high-contrast themes to specialized resources and interactive tools, we empower learners to engage with clarity and ease. Join us in shaping a more accessible learning experience for all."
+  },
+  {
+    "id": 2,
+    "name": "Cataract",
+    "image": "images/2.png",
+    "description": "Welcome to our educational platform tailored for individuals with astigmatism and cataracts. Dive into our adaptive content designed to cater to diverse visual conditions. With customizable font sizes, high-contrast themes, and interactive features, our platform ensures an inclusive learning environment for all users. Empower yourself with knowledge, regardless of your visual challenges, and embark on a journey of accessible education"
+  },
+  {
+    "id": 3,
+    "name": "Colorblind",
+    "image": "images/3.png",
+    "description": "Explore our content optimized for accessibility, featuring clear contrasts and intuitive designs. With our platform, learning is inclusive and adaptable, ensuring that individuals with color vision deficiency can engage with confidence and clarity. Join us in creating a more accessible educational experience for all"
+  }
+]
