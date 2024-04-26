@@ -1,0 +1,25 @@
+/* Art.css */
+
+.art-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  }
+  
+  .art-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+  }
+  
+  .art-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555; /* Medium text color */
+  }
+  
+  /* You can add more CSS styles to customize the appearance further */
+  
