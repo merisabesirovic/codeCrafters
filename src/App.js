@@ -1,9 +1,11 @@
 import "./App.css";
-import Example from "./components/Carousel";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+
 function App() {
   return (
     <div className="App">
-      <Example></Example>
+      <Register />
     </div>
   );
 }
