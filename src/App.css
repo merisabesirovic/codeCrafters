@@ -4,11 +4,7 @@
   margin: 0;
   padding: 0;
 }
-.header {
-  background-color: #282c34;
-  height: 80px;
-  width: 100%;
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

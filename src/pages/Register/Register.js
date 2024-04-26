@@ -6,8 +6,7 @@ import * as Yup from "yup";
 import { TextField, Button } from "@mui/material"; // Import Mui components
 import "./Register.css"; // Import the CSS file
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { toast } from "react-toastify"; // Import toast from react-toastify
-import "react-toastify/dist/ReactToastify.css"; // Import the CSS for toast notifications
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate(); // Declare useNavigate here
@@ -106,6 +105,7 @@ const Register = () => {
                   ? "Creating account..."
                   : "Create account"}
               </Button>
+              <ToastContainer></ToastContainer>
             </form>
           )}
         />
