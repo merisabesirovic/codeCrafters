@@ -3,8 +3,13 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./pages/Landing/Landing";
 import Register from "./pages/Register/Register";
-import Login from "./pages/Login/Login";
-import Header from "./components/Header/Header";
+import Header from "./pages/Header/Header";
+import HomePage from "./pages/Home/Home";
+import Art from "./pages/Courses/Art";
+import Code from "./pages/Courses/Code";
+import Dmarket from "./pages/Courses/DMarket";
+
+
 
 function App() {
   const location = useLocation(); // Get the current location
@@ -17,13 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      {isRootPath ? <Header /> : <Navbar />}{" "}
-      {/* Conditionally render Header or Navbar */}
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <Landing/>
     </div>
   );
 }
