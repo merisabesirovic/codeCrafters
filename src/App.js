@@ -6,6 +6,9 @@ import Register from "./pages/Register/Register";
 import Header from "./pages/Header/Header";
 import HomePage from "./pages/Home/Home";
 import Art from "./pages/Courses/Art";
+import Code from "./pages/Courses/Code";
+import Dmarket from "./pages/Courses/DMarket";
+
 
 
 function App() {
@@ -17,7 +20,7 @@ function App() {
   return (
     <div className="App">
       
-      <Art/>
+      <Dmarket/>
     </div>
   );
 }
