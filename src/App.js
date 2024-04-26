@@ -19,8 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      
-      <Dmarket/>
+      <Landing/>
     </div>
   );
 }
