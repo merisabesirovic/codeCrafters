@@ -1,5 +1,7 @@
 import { Paper, Button } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
 import "./Item.css";
+import theme from "../theme/theme";
 
 function Item({ item }) {
   return (
@@ -9,7 +11,11 @@ function Item({ item }) {
         <div className="item-left">
           <h2>{item.name}</h2>
           <p>{item.description}</p>
-          <Button className="CheckButton">Check it out!</Button>
+          <ThemeProvider theme={theme}>
+            <Button variant="contained" id="login">
+              Click here
+            </Button>
+          </ThemeProvider>
         </div>
       </div>
     </Paper>

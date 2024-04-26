@@ -5,7 +5,7 @@ import slider from "../slider.json";
 
 function Example() {
   return (
-    <Carousel>
+    <Carousel duration={150} autoPlay={true}>
       {slider.map((item) => (
         <Item key={item.id} item={item} />
       ))}
