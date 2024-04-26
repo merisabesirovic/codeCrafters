@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import './Login.css'; // Import the CSS file
-
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 class Login extends Component {
   state = {
     loggedin: false
@@ -76,6 +76,7 @@ class Login extends Component {
                 >
                   {formikProps.isSubmitting ? 'Signing in...' : 'Sign in'}
                 </button>
+                <p>Don't have an account? <a href="/register">Register here</a></p>
               </div>
             )}
           />
