@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import "./Login.css"; // Import the CSS file
+import theme from "../../theme/theme";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Button, ThemeProvider } from "@mui/material";
 class Login extends Component {
   state = {
     loggedin: false,
@@ -77,14 +79,19 @@ class Login extends Component {
                       {formikProps.errors.password}
                     </p>
                   </div>
+                  <ThemeProvider theme={theme}>
+                    <Button
+                      variant="contained"
+                      className="submit-button"
+                      onClick={formikProps.handleSubmit}
+                      disabled={
+                        !formikProps.isValid || formikProps.isSubmitting
+                      }
+                    >
+                      {formikProps.isSubmitting ? "Signing in..." : "Sign in"}
+                    </Button>
+                  </ThemeProvider>
 
-                  <button
-                    className="submit-button"
-                    onClick={formikProps.handleSubmit}
-                    disabled={!formikProps.isValid || formikProps.isSubmitting}
-                  >
-                    {formikProps.isSubmitting ? "Signing in..." : "Sign in"}
-                  </button>
                   <p>
                     Don't have an account? <a href="/register">Register here</a>
                   </p>
