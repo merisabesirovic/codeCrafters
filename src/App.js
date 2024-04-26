@@ -10,7 +10,10 @@ function App() {
   const location = useLocation(); // Get the current location
 
   // Check if the current path is "/"
-  const isRootPath = location.pathname === "/";
+  const isRootPath =
+    location.pathname === "/" ||
+    location.pathname === "/register" ||
+    location.pathname === "/login";
 
   return (
     <div className="App">

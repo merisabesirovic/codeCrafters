@@ -1,64 +1,92 @@
 /* Register.css */
-
+@import url("../../fonts/font.css");
 .register-container {
-    max-width: 400px;
-    width: 100%;
-    padding: 40px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .register-container h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #555;
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .error-message {
-    color: #ff0000;
-    font-size: 14px;
-    margin-top: 4px;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .submit-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.register-container label {
+  display: block;
+  font-family: Poppins;
+  color: #1d3455;
+  font-weight: 600;
+}
+.register-container h1 {
+  font-family: Poppins;
+  font-size: 1.7rem;
+  color: #1d3455;
+}
+.register-container input {
+  padding: 10px;
+  min-width: 300px;
+  background-color: #eaf6ff; /* Light blue background color */
+  border: 1px solid #b3d7ff; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  outline: none; /* Remove default input outline */
+}
+
+/* Style for input when it's focused */
+input:focus {
+  border-color: #0099ff; /* Change border color when focused */
+}
+
+.register-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
