@@ -1,5 +1,5 @@
 /* HomePage.css */
-
+@import url("../../fonts/font.css");
 .home-page {
   padding: 20px;
   text-align: center;
@@ -26,12 +26,13 @@
 
 .card h2 {
   margin-bottom: 10px;
-  color: #333;
+  color: #1d3455;
 }
 
 .card p {
-  color: #666;
+  color: #1d3455;
   margin-bottom: 20px;
+  font-family: Poppins;
 }
 .img {
   border-radius: 50%;
