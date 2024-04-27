@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Example from "../../components/Carousel";
+import "./Landing.css";
 
 const handleClick1 = () => {
   const text = "Press any key to enter blind person mode";
