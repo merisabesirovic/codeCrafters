@@ -64,6 +64,9 @@ const Dmarket = () => {
   if (transcript.toLowerCase() === "read me") {
     setIsReading(true); // Start reading if "read me" is detected
     resetTranscript(); // Reset the transcript after executing the command
+  }else if(transcript.toLowerCase() === "play"){
+    playVideo()
+    resetTranscript(); // Reset the transcript after executing the command
   }
 
   return (
@@ -103,7 +106,6 @@ const Dmarket = () => {
             url="https://www.youtube.com/watch?v=_kFJflibthg&list=RD_kFJflibthg&start_radio=1"
             controls
           />
-          <button onClick={playVideo}>Play Video</button>
         </div>
       </div>
     </ThemeProvider>
