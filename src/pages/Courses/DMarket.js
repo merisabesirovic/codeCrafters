@@ -60,7 +60,7 @@ const Dmarket = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="art-container" onKeyDown={handleInitialRead} tabIndex="0">
+      <div className="art-container" onClick={handleInitialRead} tabIndex="0">
         <div className="flex">
           {listening ? (
             <KeyboardVoiceIcon color="#1d3455"></KeyboardVoiceIcon>
