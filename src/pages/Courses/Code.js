@@ -40,6 +40,7 @@ const Code = () => {
         setIsReading(true); // Start reading if "read me" is detected
         resetTranscript(); // Reset the transcript after executing the command
     }
+    
 
     return (
         <div className="art-container" onKeyDown={handleKeyDown} tabIndex="0">
