@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { ThemeProvider } from "@emotion/react";
 import { Avatar, Button, IconButton, Badge, ButtonGroup } from "@mui/material";
@@ -15,8 +15,9 @@ import "../../Mode.css";
 import { useFilter } from "../contexts/FilterProvider";
 export default function Navbar() {
   const { applyFilter, removeFilter } = useFilter();
+  const navigate = useNavigate();
   const handleLogout = () => {
-    // Handle logout functionality
+    navigate("/");
   };
 
   return (

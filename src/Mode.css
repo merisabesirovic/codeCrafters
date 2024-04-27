@@ -9,7 +9,9 @@
   color: #333; /* Default text color */
   background: rgb(246, 221, 221);
 }
-
+.cataract p {
+  padding: 10px;
+}
 .cataract .card {
   border: 5px solid #333;
   font-weight: 600;

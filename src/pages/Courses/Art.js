@@ -139,7 +139,7 @@ const Art = () => {
       <div class="video-container">
         <ReactPlayer
           ref={playerRef}
-          url="https://www.youtube.com/watch?v=_kFJflibthg&list=RD_kFJflibthg&start_radio=1"
+          url="https://www.youtube.com/watch?v=1jjmOF1hQqI"
           controls
         />
       </div>

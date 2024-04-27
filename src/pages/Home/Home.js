@@ -76,10 +76,14 @@ const HomePage = () => {
             <MicOffIcon color="#1d3455"></MicOffIcon>
           )}
           <p>Microphone: {listening ? "on" : "off"}</p>
+
+          <Button
+            variant="contained"
+            onClick={SpeechRecognition.startListening}
+          >
+            Start
+          </Button>
         </div>
-        <Button variant="contained" onClick={SpeechRecognition.startListening}>
-          Start
-        </Button>
         <p>{transcript}</p>
         <h1></h1>
         <div className="card-container">
@@ -102,12 +106,13 @@ const HomePage = () => {
           </div>
           <div className="card">
             <img className="bgimg" src={nit}></img>
-            <h2>Centar NIt Coding Course</h2>
+            <h2>Centar NIT Coding Course</h2>
             <p>
-              The UNINP Coding Course offers comprehensive training in
+              The Centar NIT Coding Course offers comprehensive training in
               programming languages and software development
             </p>
             <Button
+              style={{ marginTop: "12px" }}
               variant="contained"
               onClick={() => handleNavigation("/home/coding")}
             >
@@ -119,7 +124,7 @@ const HomePage = () => {
 
             <h2>Google Digital Marketing Course</h2>
             <p>
-              UNINP's Digital Marketing Course offers essential skills and
+              Google's Digital Marketing Course offers essential skills and
               strategies for success in the digital marketing industry.
             </p>
 

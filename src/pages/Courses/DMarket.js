@@ -112,7 +112,7 @@ const Dmarket = () => {
         <div className="video-container">
           <ReactPlayer
             ref={playerRef}
-            url="https://www.youtube.com/watch?v=_kFJflibthg&list=RD_kFJflibthg&start_radio=1"
+            url="https://youtu.be/bixR-KIJKYM?si=dpkj1XfM30Bm4BwK"
             controls
           />
         </div>

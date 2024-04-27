@@ -10,6 +10,7 @@ import "./Art.css"; // Import the CSS file
 import theme from "../../theme/theme";
 import ReactPlayer from "react-player/youtube";
 import { useNavigate } from "react-router-dom";
+import "./Code.css";
 
 const textToRead =
   "Our Coding Course is meticulously crafted to ignite your passion for coding and enhance your programming skills. Whether you're taking your first steps into the world of coding or you're a seasoned developer, our comprehensive curriculum encompasses various programming languages and technologies, including HTML, CSS, JavaScript, Python, and more. Guided by experienced instructors, you'll receive tailored support and expert guidance to refine your coding style and problem-solving abilities. Come join us and embark on an exhilarating journey of discovery and mastery in the world of coding.";
@@ -87,7 +88,6 @@ const Dmarket = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="art-container" onClick={handleInitialRead} tabIndex="0">
-        dfdsf
         <div className="flex">
           {listening ? (
             <KeyboardVoiceIcon color="#1d3455"></KeyboardVoiceIcon>

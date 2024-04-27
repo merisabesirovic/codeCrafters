@@ -1,3 +1,4 @@
+@import url("../../fonts/font.css");
 .home-page {
   padding: 20px;
   text-align: center;
@@ -21,19 +22,27 @@
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+.f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: Poppins;
+}
 .card h2 {
   margin-bottom: 10px;
   color: #333;
+  min-height: 45px;
 }
 
 .card p {
   color: #666;
   margin-bottom: 20px;
+  height: 80px;
 }
 .img {
   border-radius: 50%;
-  height: 80px;
+  min-height: 85px;
   width: auto;
 }
 .bgimg {
