@@ -107,7 +107,7 @@ const Art = () => {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/zsJpUCWfyPE?si=0t96UZcZOCO7fl4Z"
+          src="https://www.youtube.com/embed/1jjmOF1hQqI?si=T-BF08JGrQ975guw"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

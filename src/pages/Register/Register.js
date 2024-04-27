@@ -17,6 +17,9 @@ const Register = () => {
     number: Yup.string().required("Number is required"),
   });
 
+  const handleLogout = () => {
+    navigate("/");
+  };
   const handleSubmit = () => {
     toast.success("Account created successfully!");
     setTimeout(() => {
@@ -94,7 +97,10 @@ const Register = () => {
                   </div>
                 )}
               </div>
-              <Button variant="contained">Cancel</Button> {/* Use Mui Button */}
+              <Button onClick={handleLogout} variant="contained">
+                Cancel
+              </Button>{" "}
+              {/* Use Mui Button */}
               <Button
                 onClick={handleSubmit}
                 type="submit"

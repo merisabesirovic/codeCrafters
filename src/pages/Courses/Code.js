@@ -10,7 +10,7 @@ import "./Art.css"; // Import the CSS file
 import theme from "../../theme/theme";
 
 const textToRead =
-  "Our Digital Marketing Course is meticulously designed to ignite your passion for online marketing and hone your digital skills. Whether you're new to the realm of digital marketing or a seasoned marketer, our comprehensive curriculum covers a diverse array of topics, including social media marketing, search engine optimization (SEO), content marketing, email marketing, and more. Led by industry experts, you'll receive personalized guidance and hands-on experience to develop effective marketing strategies and leverage digital tools to drive business growth. Join us now and embark on an exciting journey to become a proficient digital marketer.";
+  "Our Coding Course is meticulously crafted to ignite your passion for coding and enhance your programming skills. Whether you're taking your first steps into the world of coding or you're a seasoned developer, our comprehensive curriculum encompasses various programming languages and technologies, including HTML, CSS, JavaScript, Python, and more. Guided by experienced instructors, you'll receive tailored support and expert guidance to refine your coding style and problem-solving abilities. Come join us and embark on an exhilarating journey of discovery and mastery in the world of coding.";
 
 const Dmarket = () => {
   const {
@@ -76,7 +76,7 @@ const Dmarket = () => {
           </Button>
         </div>
         <p>{transcript}</p>
-        <h1>Digital Market Course</h1>
+        <h1>Coding Course</h1>
         <p>{textToRead}</p>
         <Button onClick={() => setIsReading(true)}>Citaj</Button>
 
@@ -85,7 +85,7 @@ const Dmarket = () => {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/zsJpUCWfyPE?si=0t96UZcZOCO7fl4Z"
+            src="https://www.youtube.com/embed/zOjov-2OZ0E?si=VNkyE9R7FgqFHL0R"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

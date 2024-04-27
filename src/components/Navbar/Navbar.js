@@ -5,18 +5,22 @@ import {
   Mail as MailIcon,
   Notifications as NotificationsIcon,
 } from "@mui/icons-material"; // Import icons for notifications
-import img from "../../img/EyeCenter.png";
+
 import theme from "../../theme/theme";
 import "./Navbar.css";
+import logo from "../../img/logoo.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    // Handle logout functionality
+    navigate("/");
   };
 
   return (
     <div className="nav-container">
-      <img src={img}></img>
+      <img className="logo" src={logo}></img>
       <div className="nav">
         <ThemeProvider theme={theme}>
           <Avatar alt={"U"} src={``} />

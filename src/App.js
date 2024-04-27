@@ -14,7 +14,10 @@ import Code from "./pages/Courses/Code";
 function App() {
   const location = useLocation();
 
-  const isRootPath = location.pathname === "/";
+  const isRootPath =
+    location.pathname === "/" ||
+    location.pathname === "/login" ||
+    location.pathname === "/register";
 
   return (
     <div className="App">

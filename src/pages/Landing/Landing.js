@@ -10,9 +10,8 @@ const handleClick1 = () => {
 };
 const cancleEvent = (event) => {
   window.speechSynthesis.cancel();
-}
+};
 const Landing = () => {
-  
   useEffect(() => {
     handleClick1();
 
@@ -24,7 +23,6 @@ const Landing = () => {
       }
     };
 
-
     // Add event listener for key press
     window.addEventListener("keydown", handleKeyPress);
 
@@ -35,10 +33,10 @@ const Landing = () => {
   }, []);
 
   return (
-    <div onClick={handleClick1} className="boddy">
+    <div onDoubleClick={handleClick1} className="boddy">
       <Example />
-      
-      <Link to="/register" onClick={cancleEvent}  style={{ display: "none" }} />
+
+      <Link to="/register" onClick={cancleEvent} style={{ display: "none" }} />
     </div>
   );
 };
