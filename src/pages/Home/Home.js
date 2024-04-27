@@ -14,12 +14,15 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import MicOffIcon from "@mui/icons-material/MicOff";
 const textToRead =
   "Our Digital Marketing Course is meticulously designed to ignite your passion for online marketing and hone your digital skills. Whether you're new to the realm of digital marketing or a seasoned marketer, our comprehensive curriculum covers a diverse array of topics, including social media marketing, search engine optimization (SEO), content marketing, email marketing, and more. Led by industry experts, you'll receive personalized guidance and hands-on experience to develop effective marketing strategies and leverage digital tools to drive business growth. Join us now and embark on an exciting journey to become a proficient digital marketer.";
-const asistentClick = () => {
-  const text =
-    "If you want to go to art course say art, if you want to go to coding course say code, if you want to go to digital course say digital";
-  const value = new SpeechSynthesisUtterance(text);
-  window.speechSynthesis.speak(value);
+const asistentClick = () =>{
+  const text = "If you want to go to art course say art, if you want to go to coding course say code, if you want to go to digital course say digital"
+  const value =  new SpeechSynthesisUtterance(text)
+  window.speechSynthesis.speak(value)
+  value.onend = () => {
+        
+    SpeechRecognition.startListening();
 };
+}
 const HomePage = () => {
   const navigate = useNavigate(); // Declare useNavigate here
 
@@ -34,14 +37,6 @@ const HomePage = () => {
   } = useSpeechRecognition();
   const [isReading, setIsReading] = useState(false);
 
-  useEffect(() => {
-    if (isReading) {
-      const value = new SpeechSynthesisUtterance(textToRead);
-      window.speechSynthesis.speak(value);
-    } else {
-      window.speechSynthesis.cancel();
-    }
-  }, [isReading]);
 
   const handleKeyDown = (event) => {
     if (event.keyCode === 32) {
