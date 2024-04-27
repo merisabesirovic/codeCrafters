@@ -16,6 +16,10 @@ const asistentClick = () =>{
   const text = "If you want to go to art course say art, if you want to go to coding course say code, if you want to go to digital course say digital"
   const value =  new SpeechSynthesisUtterance(text)
   window.speechSynthesis.speak(value)
+  value.onend = () => {
+        
+    SpeechRecognition.startListening();
+};
 }
 const HomePage = () => {
   const navigate = useNavigate(); // Declare useNavigate here
@@ -31,14 +35,6 @@ const HomePage = () => {
   } = useSpeechRecognition();
   const [isReading, setIsReading] = useState(false);
 
-  useEffect(() => {
-    if (isReading) {
-      const value = new SpeechSynthesisUtterance(textToRead);
-      window.speechSynthesis.speak(value);
-    } else {
-      window.speechSynthesis.cancel();
-    }
-  }, [isReading]);
 
   const handleKeyDown = (event) => {
     if (event.keyCode === 32) {
