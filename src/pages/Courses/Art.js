@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
@@ -8,6 +8,7 @@ import theme from "../../theme/theme";
 import { ThemeProvider } from "@emotion/react";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import MicOffIcon from "@mui/icons-material/MicOff";
+import ReactPlayer from "react-player/youtube";
 
 const textToRead =
   "Our Art Course is designed to unleash your creativity and develop your artistic skills. Whether you are a beginner or an experienced artist, our comprehensive curriculum covers a wide range of techniques and mediums, including drawing, painting, sculpture, and digital art. Led by talented instructors, you will receive personalized feedback and guidance to help you explore your artistic voice and express yourself through your work. Join us and embark on a journey of self-discovery and artistic growth.";
@@ -20,6 +21,7 @@ const Art = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
   const [isReading, setIsReading] = useState(false);
+  const playerRef = useRef(null);
 
   useEffect(() => {
     if (isReading) {
@@ -49,6 +51,12 @@ const Art = () => {
     setIsReading(true); // Start reading if "read me" is detected
     resetTranscript(); // Reset the transcript after executing the command
   }
+  const playVideo = () => {
+    if (playerRef.current) {
+      // Check if the player instance is available and play the video
+      playerRef.current.getInternalPlayer().playVideo();
+    }
+  };
 
   return (
     <div className="art-container" onKeyDown={handleKeyDown} tabIndex="0">
@@ -104,15 +112,11 @@ const Art = () => {
       </ThemeProvider>
 
       <div class="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/1jjmOF1hQqI?si=T-BF08JGrQ975guw"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+        <ReactPlayer
+          ref={playerRef}
+          url="https://www.youtube.com/watch?v=_kFJflibthg&list=RD_kFJflibthg&start_radio=1"
+          controls
+        />
       </div>
     </div>
   );

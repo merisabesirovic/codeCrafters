@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
@@ -8,6 +8,7 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import MicOffIcon from "@mui/icons-material/MicOff";
 import "./Art.css"; // Import the CSS file
 import theme from "../../theme/theme";
+import ReactPlayer from "react-player/youtube";
 
 const textToRead =
   "Our Coding Course is meticulously crafted to ignite your passion for coding and enhance your programming skills. Whether you're taking your first steps into the world of coding or you're a seasoned developer, our comprehensive curriculum encompasses various programming languages and technologies, including HTML, CSS, JavaScript, Python, and more. Guided by experienced instructors, you'll receive tailored support and expert guidance to refine your coding style and problem-solving abilities. Come join us and embark on an exhilarating journey of discovery and mastery in the world of coding.";
@@ -20,6 +21,7 @@ const Dmarket = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
   const [isReading, setIsReading] = useState(false);
+  const playerRef = useRef(null);
 
   useEffect(() => {
     if (isReading) {
@@ -38,6 +40,12 @@ const Dmarket = () => {
       } else {
         setIsReading(false); // Stop reading
       }
+    }
+  };
+  const playVideo = () => {
+    if (playerRef.current) {
+      // Check if the player instance is available and play the video
+      playerRef.current.getInternalPlayer().playVideo();
     }
   };
 
@@ -82,15 +90,11 @@ const Dmarket = () => {
 
         {/* Add iframe */}
         <div className="video-container">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/zOjov-2OZ0E?si=VNkyE9R7FgqFHL0R"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <ReactPlayer
+            ref={playerRef}
+            url="https://www.youtube.com/watch?v=_kFJflibthg&list=RD_kFJflibthg&start_radio=1"
+            controls
+          />
         </div>
       </div>
     </ThemeProvider>
