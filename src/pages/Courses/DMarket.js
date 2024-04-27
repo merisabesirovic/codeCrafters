@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
@@ -8,17 +8,17 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import MicOffIcon from "@mui/icons-material/MicOff";
 import "./Art.css"; // Import the CSS file
 import theme from "../../theme/theme";
+import ReactPlayer from "react-player/youtube";
+
 const textToRead =
   "Our Digital Marketing Course is meticulously designed to ignite your passion for online marketing and hone your digital skills. Whether you're new to the realm of digital marketing or a seasoned marketer, our comprehensive curriculum covers a diverse array of topics, including social media marketing, search engine optimization (SEO), content marketing, email marketing, and more. Led by industry experts, you'll receive personalized guidance and hands-on experience to develop effective marketing strategies and leverage digital tools to drive business growth. Join us now and embark on an exciting journey to become a proficient digital marketer.";
-
 const handleInitialRead = () => {
-  const initialTextToRead = "Say read me to start"
-    const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
-    window.speechSynthesis.speak(initialSpeech);
-    initialSpeech.onend = () => {
-       
-        SpeechRecognition.startListening();
-    };
+  const initialTextToRead = "Say read me to start";
+  const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
+  window.speechSynthesis.speak(initialSpeech);
+  initialSpeech.onend = () => {
+    SpeechRecognition.startListening();
+  };
 };
 const Dmarket = () => {
   const {
@@ -28,6 +28,7 @@ const Dmarket = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
   const [isReading, setIsReading] = useState(false);
+  const playerRef = useRef(null);
 
   useEffect(() => {
     if (isReading) {
@@ -46,6 +47,13 @@ const Dmarket = () => {
       } else {
         setIsReading(false); // Stop reading
       }
+    }
+  };
+
+  const playVideo = () => {
+    if (playerRef.current) {
+      // Check if the player instance is available and play the video
+      playerRef.current.getInternalPlayer().playVideo();
     }
   };
 
@@ -88,17 +96,14 @@ const Dmarket = () => {
         <p>{textToRead}</p>
         <Button onClick={() => setIsReading(true)}>Citaj</Button>
 
-        {/* Add iframe */}
+        {/* Add ReactPlayer component */}
         <div className="video-container">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/bixR-KIJKYM?si=VdFrFV-j6_jQ15qj"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <ReactPlayer
+            ref={playerRef}
+            url="https://www.youtube.com/watch?v=_kFJflibthg&list=RD_kFJflibthg&start_radio=1"
+            controls
+          />
+          <button onClick={playVideo}>Play Video</button>
         </div>
       </div>
     </ThemeProvider>
