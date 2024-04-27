@@ -1,14 +1,75 @@
 // HomePage.js
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import "./Home.css"; // Import the CSS file for styling
 import theme from "../../theme/theme";
 import { ThemeProvider } from "@emotion/react";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+const textToRead = "Our Digital Marketing Course is meticulously designed to";
+const initialTextToRead = "Say read me to start.";
 
 const HomePage = () => {
+  const navigate = useNavigate(); // Declare useNavigate here
+
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+} = useSpeechRecognition();
+const [isReading, setIsReading] = useState(false);
+
+    useEffect(() => {
+        // Call the function to read initial text when the component mounts
+        handleInitialRead();
+    }, []); // Empty dependency array ensures that it runs only once when the component mounts
+
+    useEffect(() => {
+        if (isReading) {
+            const value = new SpeechSynthesisUtterance(textToRead);
+            window.speechSynthesis.speak(value);
+           SpeechRecognition.startListening(); // Start listening for speech recognition
+        } else {
+            window.speechSynthesis.cancel();
+        }
+    }, [isReading]);
+
+    // Function to handle the initial speech when the component mounts
+    const handleInitialRead = () => {
+        const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
+        window.speechSynthesis.speak(initialSpeech);
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.keyCode === 32) { // Check if the pressed key is the spacebar
+            if (!isReading) {
+                setIsReading(true); // Start reading
+            } else {
+                setIsReading(false); // Stop reading
+            }
+        }
+    };
+
+    if (!browserSupportsSpeechRecognition) {
+        return <span>Your browser doesn't support speech recognition</span>;
+    }
+
+    if (transcript.toLowerCase() === "art kurs") {
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
+    }else if (transcript.toLowerCase() === "stop") {
+        SpeechRecognition.stopListening(); // Stop listening if "stop" is detected
+        resetTranscript(); // Reset the transcript after executing the command
+    }
+
   return (
     <ThemeProvider theme={theme}>
       <div className="home-page">
+      <p>Microphone: {listening ? 'on' : 'off'}</p>
+      <button onClick={SpeechRecognition.startListening}>Start</button>
+<p>{transcript}</p>
         <h1></h1>
         <div className="card-container">
           <div className="card">

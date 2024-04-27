@@ -8,8 +8,11 @@ const handleClick1 = () => {
   window.speechSynthesis.speak(value);
   console.log(value);
 };
-
+const cancleEvent = (event) => {
+  window.speechSynthesis.cancel();
+}
 const Landing = () => {
+  
   useEffect(() => {
     handleClick1();
 
@@ -17,9 +20,10 @@ const Landing = () => {
       // Check if any key is pressed
       if (event.key && event.keyCode !== 0) {
         // Navigate to the register page
-        window.location.href = "/register";
+        window.location.href = "/home";
       }
     };
+
 
     // Add event listener for key press
     window.addEventListener("keydown", handleKeyPress);
@@ -33,7 +37,8 @@ const Landing = () => {
   return (
     <div onClick={handleClick1} className="boddy">
       <Example />
-      <Link to="/register" style={{ display: "none" }} />
+      
+      <Link to="/register" onClick={cancleEvent}  style={{ display: "none" }} />
     </div>
   );
 };
