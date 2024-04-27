@@ -1,30 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+
 import { ThemeProvider } from "@emotion/react";
-import { Avatar, Button, IconButton, Badge } from "@mui/material";
+import { Avatar, Button, IconButton, Badge, ButtonGroup } from "@mui/material";
 import {
   Mail as MailIcon,
   Notifications as NotificationsIcon,
 } from "@mui/icons-material"; // Import icons for notifications
-
+import img from "../../img/logoo.png";
 import theme from "../../theme/theme";
 import "./Navbar.css";
-import logo from "../../img/logoo.png";
-import { useNavigate } from "react-router-dom";
+import "../../Mode.css";
 
+import { useFilter } from "../contexts/FilterProvider";
 export default function Navbar() {
-  const navigate = useNavigate();
-
+  const { applyFilter, removeFilter } = useFilter();
   const handleLogout = () => {
-    navigate("/");
+    // Handle logout functionality
   };
 
   return (
     <div className="nav-container">
-      <img className="logo" src={logo}></img>
+      <img src={img}></img>
       <div className="nav">
         <ThemeProvider theme={theme}>
-          <Avatar alt={"U"} src={``} />
+          <Button
+            variant="contained"
+            onClick={() => applyFilter("astigmatism")}
+          >
+            Astigmatism
+          </Button>
+          <Button variant="contained" onClick={() => applyFilter("cataract")}>
+            Cataract
+          </Button>
+          <Button variant="contained" onClick={() => applyFilter("colorblind")}>
+            Colorblind
+          </Button>
+          <Button variant="contained" onClick={removeFilter}>
+            No Filter
+          </Button>
 
+          <Avatar alt={"U"} src={``} />
           <IconButton aria-label="show 4 new mails" color="inherit">
             <Badge badgeContent={4} color="error">
               <MailIcon />
@@ -35,7 +51,11 @@ export default function Navbar() {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <Button variant="contained" onClick={handleLogout}>
+          <Button
+            variant="text"
+            style={{ color: "white" }}
+            onClick={handleLogout}
+          >
             Logout
           </Button>
         </ThemeProvider>

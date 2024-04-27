@@ -13,18 +13,20 @@ import { useNavigate } from "react-router-dom";
 
 const textToRead =
   "Our Art Course is designed to unleash your creativity and develop your artistic skills. Whether you are a beginner or an experienced artist, our comprehensive curriculum covers a wide range of techniques and mediums, including drawing, painting, sculpture, and digital art. Led by talented instructors, you will receive personalized feedback and guidance to help you explore your artistic voice and express yourself through your work. Join us and embark on a journey of self-discovery and artistic growth.";
-  const handleInitialRead = () => {
-    const initialTextToRead = "Say read me to start, say play to play video, say back to go home";
-    const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
-    window.speechSynthesis.speak(initialSpeech);
-    initialSpeech.onend = () => {
-      SpeechRecognition.startListening();
-    };
+const handleInitialRead = () => {
+  const initialTextToRead =
+    "Say read me to start, say play to play video, say back to go home";
+  const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
+  window.speechSynthesis.speak(initialSpeech);
+  initialSpeech.onend = () => {
+    SpeechRecognition.startListening();
   };
+};
 const Art = () => {
   const navigate = useNavigate(); // Declare useNavigate here
   const handleInitialRead = () => {
-    const initialTextToRead = "Say read me to start, say play to play video, say back to go home";
+    const initialTextToRead =
+      "Say read me to start, say play to play video, say back to go home";
     const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
     window.speechSynthesis.speak(initialSpeech);
     initialSpeech.onend = () => {
@@ -66,7 +68,7 @@ const Art = () => {
   if (!browserSupportsSpeechRecognition) {
     return <span>Your browser doesn't support speech recognition</span>;
   }
-const playVideo = () => {
+  const playVideo = () => {
     if (playerRef.current) {
       // Check if the player instance is available and play the video
       playerRef.current.getInternalPlayer().playVideo();
@@ -75,13 +77,12 @@ const playVideo = () => {
   if (transcript.toLowerCase() === "read me") {
     setIsReading(true); // Start reading if "read me" is detected
     resetTranscript(); // Reset the transcript after executing the command
-  }else if(transcript.toLowerCase() === "play"){
-    playVideo()
+  } else if (transcript.toLowerCase() === "play") {
+    playVideo();
     resetTranscript(); // Reset the transcript after executing the command
-  }else if(transcript.toLowerCase() === "back"){
-    navigate("/home")
+  } else if (transcript.toLowerCase() === "back") {
+    navigate("/home");
   }
-  
 
   return (
     <div className="art-container" onClick={handleInitialRead} tabIndex="0">
@@ -135,7 +136,6 @@ const playVideo = () => {
           Citaj
         </Button>
       </ThemeProvider>
-
       <div class="video-container">
         <ReactPlayer
           ref={playerRef}
