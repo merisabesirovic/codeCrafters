@@ -9,11 +9,12 @@ import MicOffIcon from "@mui/icons-material/MicOff";
 import "./Art.css"; // Import the CSS file
 import theme from "../../theme/theme";
 import ReactPlayer from "react-player/youtube";
+import { useNavigate } from "react-router-dom";
 
 const textToRead =
   "Our Digital Marketing Course is meticulously designed to ignite your passion for online marketing and hone your digital skills. Whether you're new to the realm of digital marketing or a seasoned marketer, our comprehensive curriculum covers a diverse array of topics, including social media marketing, search engine optimization (SEO), content marketing, email marketing, and more. Led by industry experts, you'll receive personalized guidance and hands-on experience to develop effective marketing strategies and leverage digital tools to drive business growth. Join us now and embark on an exciting journey to become a proficient digital marketer.";
 const handleInitialRead = () => {
-  const initialTextToRead = "Say read me to start";
+  const initialTextToRead = "Say read me to start, say play to play video, say back to go home";
   const initialSpeech = new SpeechSynthesisUtterance(initialTextToRead);
   window.speechSynthesis.speak(initialSpeech);
   initialSpeech.onend = () => {
@@ -21,6 +22,11 @@ const handleInitialRead = () => {
   };
 };
 const Dmarket = () => {
+  const navigate = useNavigate(); // Declare useNavigate here
+
+  const handleNavigation = (route) => {
+    navigate(route); // Use navigate for navigation
+  };
   const {
     transcript,
     listening,
@@ -67,6 +73,8 @@ const Dmarket = () => {
   }else if(transcript.toLowerCase() === "play"){
     playVideo()
     resetTranscript(); // Reset the transcript after executing the command
+  }else if(transcript.toLowerCase() === "back"){
+    navigate("/home")
   }
 
   return (
