@@ -105,7 +105,6 @@ const Register = () => {
                   ? "Creating account..."
                   : "Create account"}
               </Button>
-              <ToastContainer></ToastContainer>
             </form>
           )}
         />
